@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #040609;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        table {
+            margin: 20px auto 10px; /* Added margin-bottom to create space */
+            border-collapse: collapse;
+            width: 80%;
+            border: 2px solid #040609;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #040609;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #040609;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1 th:align="center">Users</h1>
+<table th:border="2" th:align="center">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>surname</th>
+        <th>email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td>
+            <a th:href="@{/users/edit/{id}(id=${user.id})}" class="button-link">
+                <button class="button">Edit</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/users/delete/{id}(id=${user.id})}" class="button-link">
+                <button class="button">Delete</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <a th:href="@{/users/new}" class="button-link">
+        <button class="button">Add User</button>
+    </a>
+</div>
+</body>
+</html>
