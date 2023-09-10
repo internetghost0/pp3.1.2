@@ -1,18 +1,21 @@
-package com.springmvc.services;
+package web.services;
 
-import com.springmvc.dao.UserDao;
-import com.springmvc.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import web.dao.UserDao;
+import web.models.User;
 
 import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
 public class UserServiceImpl implements UserService{
-    @Autowired
     UserDao userDao;
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Transactional
     @Override

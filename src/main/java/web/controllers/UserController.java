@@ -1,11 +1,11 @@
-package com.springmvc.controllers;
+package web.controllers;
 
-import com.springmvc.models.User;
-import com.springmvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import web.models.User;
+import web.services.UserService;
 
 import java.util.List;
 

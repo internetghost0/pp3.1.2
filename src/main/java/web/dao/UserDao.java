@@ -1,6 +1,6 @@
-package com.springmvc.dao;
+package web.dao;
 
-import com.springmvc.models.User;
+import web.models.User;
 
 import java.util.List;
 
